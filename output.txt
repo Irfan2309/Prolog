@@ -1,0 +1,89 @@
+?- basicType(water).
+true.
+
+?- basicType(X).
+X = water ;
+X = grass ;
+X = fire ;
+X = ghost ;
+X = normal.
+
+------------x------------
+
+?- monster(chewtle, X).
+X = water.
+
+?- monster(X, Y).
+X = chewtle,
+Y = water ;
+X = pansage,
+Y = grass ;
+X = rapidash,
+Y = fire ;
+X = shuppet,
+Y = ghost ;
+X = wooloo,
+Y = normal.
+------------x------------
+
+?- move(X, ghost).
+X = lick ;
+X = hex ;
+X = shadowBall.
+
+?- move(overheat, X).
+X = fire.
+------------x------------
+
+?- monsterMove(pansage,X).
+X = lick ;
+X = sunnyDay ;
+X = seedBomb ;
+X = tackle.
+
+?- monsterMove(X, headbutt).
+X = chewtle ;
+X = wooloo.
+
+------------x------------
+
+?- typeEffectiveness(fire, water, X).
+X = weak.
+
+?- typeEffectiveness(water, fire, X).
+X = strong.
+
+------------x------------
+
+?- moreEffective(strong,ordinary).
+true.
+
+?- moreEffective(weak, superweak).
+true.
+------------x------------
+
+?- moreEffectiveThan(strong,superweak).
+true 
+
+?- moreEffectiveThan(weak, strong).
+false.
+
+------------x------------
+
+?- monsterMoveTypeMatch(tackle, wooloo).
+true.
+
+------------x------------
+
+?- moreEffectiveTypeMove(fire, waterGun, flameCharge).
+true 
+
+?- moreEffectiveTypeMove(grass, sunnyDay, hydroPump).
+true 
+------------x------------
+
+?- moreEffectiveMonsterMove(pansage,wooloo,seedBomb,grassySlide).
+true 
+
+?-  moreEffectiveMonsterMove(rapidash, pansage, flameCharge, seedBomb).
+true 
